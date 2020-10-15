@@ -1,28 +1,12 @@
-#include <iostream>
-#include <string.h>
+#include "common.h"
+#include "chunk.cpp"
+#include "debug.cpp"
+int main(int argc, const char* argv[]) {
+Chunk chunk;
+initChunk(&chunk);
+writeChunk(&chunk, OP_RETURN);
 
-using namespace std;
-
-void showHelp() {
-cout << "Usage: InvertedScript [-h | -s (script)]" << endl;
-}
-
-void runFile(char*) {
-
-}
-
-void runPrompt() {
-
-}
-int main(int argc, char* argv[]) {
-if (_stricmp(argv[1], "-h") == 0) {
-showHelp(); //show the help thing
+disassembleChunk(&chunk, "test chunk");
+freeChunk(&chunk);
 return 0;
-} else if (_stricmp(argv[1], "/h") == 0) {
-cout << "I understand your confusion fellow Windows user, But please start command line flags UNIX style, for example you could type -h to get help" << endl;
-} else if (_stricmp(argv[1], "-s") == 0) {
-runFile(argv[1]);
-} else {
-runPrompt();
-}
 }
