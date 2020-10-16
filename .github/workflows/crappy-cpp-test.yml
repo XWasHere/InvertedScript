@@ -1,8 +1,11 @@
-name: C/C++ CI
+name: sad excuse for a test script
 
 on:
   pull_request:
     branches: [ main ]
+    paths:
+      - '**.cpp'
+      - '**.h'
 
 jobs:
   build:
@@ -11,5 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
+    - name: set up the runner owo
+      run: 'mkdir build'
+      
+    - name: "runner setup: the sequel"
+      run: 'mkdir build/obj'
+      
     - name: build the thing
       run: make
