@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "common.h"
-#include "compiler.h"
 #include "chunk.h"
 #include "debug.h"
 #include "vm.h"
@@ -60,7 +59,8 @@ static void runFile(const char* path) {
   if (result == INTERPRET_RUNTIME_ERROR) exit(70);
 }
 
-int main(int argc, const char* argv[]) {
+int main(int argc, const char *argv[])
+{
   initVM();
 
   if (argc == 1) {
