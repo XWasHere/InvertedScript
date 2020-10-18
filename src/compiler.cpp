@@ -12,8 +12,8 @@
 typedef struct {
   Token current;
   Token previous;
-    bool hadError;
-    bool panicMode;
+  bool hadError;
+  bool panicMode;
 } Parser;
 
 typedef enum {
@@ -121,7 +121,7 @@ static void emitConstant(Value value) {
 
 static void endCompiler() {
   emitReturn();
-  #ifdef DEBUG_PRINT_CODE
+#ifdef DEBUG_PRINT_CODE
   if (!parser.hadError) {
     disassembleChunk(currentChunk(), "code");
   }
@@ -142,7 +142,7 @@ static void binary() {
 
   // Emit the operator instruction.
   switch (operatorType) {
-        case TOKEN_BANG_EQUAL:    emitBytes(OP_EQUAL, OP_NOT); break;
+    case TOKEN_BANG_EQUAL:    emitBytes(OP_EQUAL, OP_NOT); break;
     case TOKEN_EQUAL_EQUAL:   emitByte(OP_EQUAL); break;
     case TOKEN_GREATER:       emitByte(OP_GREATER); break;
     case TOKEN_GREATER_EQUAL: emitBytes(OP_LESS, OP_NOT); break;
@@ -270,6 +270,6 @@ bool compile(const char* source, Chunk* chunk) {
   advance();
   expression();
   consume(TOKEN_EOF, "Expect end of expression.");
-    endCompiler();
+  endCompiler();
   return !parser.hadError;
 }
