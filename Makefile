@@ -1,5 +1,6 @@
 HDF = src/*.cpp
 interpreter: src/*
+	g++ src/table.cpp -c -o build/obj/table.o
 	g++ src/object.cpp -c -o build/obj/object.o
 	g++ src/chunk.cpp -c -o build/obj/chunk.o
 	g++ src/debug.cpp -c -o build/obj/debug.o
